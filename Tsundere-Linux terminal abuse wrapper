@@ -1,45 +1,38 @@
+# Create or open the Tsundere-linux script for editing
+sudo tee /usr/local/bin/Tsundere-linux > /dev/null << 'EOF'
 #!/usr/bin/env python3
 
-import subprocess
 import sys
-import random
+import subprocess
 
-# List of tsundere-style insults
+# List of Tsundere-style insults
 tsundere_insults = [
     "Wrong syntax, baka!",
-    "Did you forget how to type?",
-    "I-It's not like I wanted to run your command anyway...",
-    "Why don't you try reading the manual, dummy?",
-    "You really thought that would work? How naive.",
-    "Ugh, do I have to do everything for you?",
-    "Your command is as broken as your logic!",
-    "Hmph! Figure it out yourself, idiot.",
-    "This is why I can't trust you with anything...",
-    "I-I'm only helping because I want to, not because you need it!"
+    "What did you think you were doing, idiot?",
+    "You messed up again, fool!",
+    "How dare you make such mistakes!",
 ]
 
 def run_command(command):
     try:
         # Execute the command
-        result = subprocess.run(command, shell=True, capture_output=True, text=True)
-        
-        # If there's an error, replace it with a tsundere insult
-        if result.returncode != 0:
-            insult = random.choice(tsundere_insults)
-            print(f"Tsundere-Linus: {insult}")
-        else:
-            # Print the command output if no errors
-            print(result.stdout)
-    
-    except Exception as e:
-        # In case of unexpected exceptions, show an insult
-        print(f"Tsundere-Linus: Something went wrong, you dummy!")
+        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        # Handle errors with tsundere-style insults
+        error_message = e.stderr.strip() if e.stderr else "Unknown error."
+        insult = tsundere_insults[0]  # Choose a random insult if needed
+        print(f"Tsundere-linux: {insult}")
+        print(f"Original error: {error_message}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: tsundere-linus <command>")
+        print("Usage: Tsundere-linux <command>")
         sys.exit(1)
 
-    # Join the command line arguments to form the command
-    user_command = " ".join(sys.argv[1:])
-    run_command(user_command)
+    command = " ".join(sys.argv[1:])
+    run_command(command)
+EOF
+
+# Make the script executable
+sudo chmod +x /usr/local/bin/Tsundere-linux
