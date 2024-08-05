@@ -1,0 +1,35 @@
+# Create or open the Tsundere-linux script for editing
+sudo tee /usr/local/bin/Tsundere-linux > /dev/null << 'EOF'
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+
+# List of Tsundere-style insults
+tsundere_insults = [
+    "Wrong syntax, baka!",
+    "What did you think you were doing, idiot?",
+    "You messed up again, fool!",
+    "How dare you make such mistakes!",
+]
+
+def run_command(command):
+    try:
+        # Execute the command
+        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        # Handle errors with tsundere-style insults
+        error_message = e.stderr.strip() if e.stderr else "Unknown error."
+        insult = tsundere_insults[0]  # Choose a random insult if needed
+        print(f"Tsundere-linux: {insult}")
+        print(f"Original error: {error_message}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: Tsundere-linux <command>")
+        sys.exit(1)
+
+    command = " ".join(sys.argv[1:])
+    run_command(command)
+EOF
