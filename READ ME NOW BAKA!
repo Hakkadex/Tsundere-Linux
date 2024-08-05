@@ -1,0 +1,39 @@
+# Tsundere Linux
+
+Tsundere Linux is an ultra-elitist Linux distribution designed for BAKAS who want complete control over their system. This distribution provides only the GRUB bootloader and a minimal boot environment, leaving all other configurations to the user. Like a true tsundere, Tsundere Linux starts off challenging and demanding, but ultimately rewards users with a fully customized system.
+
+## Getting Started do it now stupid baka
+
+1. **Download the ISO:**
+   - [Download Tsundere Linux ISO](https://example.com/tsundere.iso)
+
+2. **Create a Bootable USB:**
+   - Use tools like `dd` to create a bootable USB:
+     ```bash
+     sudo dd if=tsundere.iso of=/dev/sdX bs=4M status=progress
+     ```
+
+3. **Boot the ISO:**
+   - Boot from the USB and enter the GRUB menu.
+
+4. **Load Your Kernel:**
+   - Place your compiled kernel in `/boot/vmlinuz` on your target system.
+
+5. **Build Your System:**
+   - Install and configure everything manually, including the root filesystem, necessary packages, and any other configurations.
+
+## Audience dirty little bakas
+
+This distribution is intended for filthy little users who are comfortable with being stepped on
+
+- Compiling the Linux kernel.
+- Setting up a system from scratch.
+- Managing bootloaders and system configurations manually.
+
+## Contributing to what?
+
+If you have suggestions or improvements, feel free to open an issue or submit a pull request.
+
+## License 
+
+This project is open-source and available under the [MIT License](LICENSE).
