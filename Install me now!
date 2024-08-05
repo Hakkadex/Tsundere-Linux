@@ -1,0 +1,34 @@
+# Create necessary directories while I sit on your face
+mkdir -p ~/tsundere-linux
+cd ~/tsundere-linux
+
+# Install required packages right now
+sudo apt update
+sudo apt install build-essential bison flex libtool autotools-dev autoconf automake texinfo xorriso grub-pc-bin grub-common
+
+# Download GRUB source you grubby little thing
+wget https://ftp.gnu.org/gnu/grub/grub-2.06.tar.gz
+tar -xzf grub-2.06.tar.gz
+cd grub-2.06
+
+# Compile and install GRUB before I smother you
+./configure --prefix=/usr/local
+make
+sudo make install
+
+# Set up directory structure for the ISO like a good little thing
+mkdir -p ~/tsundere-iso/boot/grub
+
+# Create a minimal GRUB configuration or else
+cat <<EOF > ~/tsundere-iso/boot/grub/grub.cfg
+set timeout=5
+set default=0
+
+menuentry "Your Kernel Here" {
+    echo 'Loading user-defined kernel...'
+    linux /boot/vmlinuz root=/dev/sda1 ro
+}
+EOF
+
+# Create the ISO for me
+grub-mkrescue -o tsundere.iso ~/tsundere-iso
