@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+import subprocess
+import sys
+import random
+
+# List of tsundere-style insults
+tsundere_insults = [
+    "Wrong syntax, baka!",
+    "Did you forget how to type?",
+    "I-It's not like I wanted to run your command anyway...",
+    "Why don't you try reading the manual, dummy?",
+    "You really thought that would work? How naive.",
+    "Ugh, do I have to do everything for you?",
+    "Your command is as broken as your logic!",
+    "Hmph! Figure it out yourself, idiot.",
+    "This is why I can't trust you with anything...",
+    "I-I'm only helping because I want to, not because you need it!"
+]
+
+def run_command(command):
+    try:
+        # Execute the command
+        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        
+        # If there's an error, replace it with a tsundere insult
+        if result.returncode != 0:
+            insult = random.choice(tsundere_insults)
+            print(f"Tsundere-Linus: {insult}")
+        else:
+            # Print the command output if no errors
+            print(result.stdout)
+    
+    except Exception as e:
+        # In case of unexpected exceptions, show an insult
+        print(f"Tsundere-Linus: Something went wrong, you dummy!")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: tsundere-linus <command>")
+        sys.exit(1)
+
+    # Join the command line arguments to form the command
+    user_command = " ".join(sys.argv[1:])
+    run_command(user_command)
