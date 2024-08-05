@@ -1,0 +1,44 @@
+# Step 1: Save the Script
+# -----------------------
+# Open a terminal and navigate to a directory where you want to store the script.
+cd ~/Desktop
+
+# Create the script file using nano or your preferred text editor.
+nano tsundere-linus.py
+
+# Paste the Tsundere-Linus script code into the nano editor and save the file.
+# (Use Ctrl + O to save and Ctrl + X to exit nano.)
+
+# Step 2: Make the Script Executable
+# ----------------------------------
+# Change the file permissions to make the script executable.
+chmod +x tsundere-linus.py
+
+# Step 3: Move or Link the Script to a Directory in Your PATH
+# -----------------------------------------------------------
+# Option A: Move the script to /usr/local/bin to make it globally accessible.
+sudo mv tsundere-linus.py /usr/local/bin/tsundere-linus
+
+# Option B: Create a symbolic link from the script to /usr/local/bin (if you prefer to keep it in the original location).
+sudo ln -s $(pwd)/tsundere-linus.py /usr/local/bin/tsundere-linus
+
+# Step 4: Run Commands with Tsundere-Linus
+# ----------------------------------------
+# Use the script to execute your terminal commands. Here are a few examples:
+
+# Example 1: Attempt to list a non-existent directory
+tsundere-linus ls /nonexistentdirectory
+
+# Example 2: Attempt to display the contents of a non-existent file
+tsundere-linus cat nonexistentfile.txt
+
+# When these commands are run, any error messages will be replaced with tsundere-style insults, such as:
+# "Tsundere-Linus: Wrong syntax, baka!"
+
+# Step 5: Customize the Script (Optional)
+# ---------------------------------------
+# You can customize the list of tsundere-style insults by editing the script and modifying the tsundere_insults list.
+# Simply open the script in your text editor again:
+nano /usr/local/bin/tsundere-linus
+
+# Add, remove, or change the insults as you see fit, then save the changes.
