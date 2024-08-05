@@ -1,10 +1,10 @@
-# Create the Tsundere-Linus Script
+# Create the Tsundere-Linux Script
 # -------------------------------
 # Navigate to your home directory or any directory where you want to store the script.
 cd ~
 
 # Create the script file and open it in a text editor.
-cat << 'EOF' > tsundere-linus.py
+cat << 'EOF' > tsundere-linux.py
 #!/usr/bin/env python3
 
 import subprocess
@@ -33,18 +33,18 @@ def run_command(command):
         # If there's an error, replace it with a tsundere insult
         if result.returncode != 0:
             insult = random.choice(tsundere_insults)
-            print(f"Tsundere-Linus: {insult}")
+            print(f"Tsundere-Linux: {insult}")
         else:
             # Print the command output if no errors
             print(result.stdout)
     
     except Exception as e:
         # In case of unexpected exceptions, show an insult
-        print(f"Tsundere-Linus: Something went wrong, you dummy!")
+        print(f"Tsundere-Linux: Something went wrong, you dummy!")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: tsundere-linus <command>")
+        print("Usage: tsundere-linux <command>")
         sys.exit(1)
 
     # Join the command line arguments to form the command
@@ -54,17 +54,17 @@ EOF
 
 # Make the Script Executable
 # --------------------------
-chmod +x tsundere-linus.py
+chmod +x tsundere-linux.py
 
 # Move the Script to a Directory in Your PATH
 # -------------------------------------------
-sudo mv tsundere-linus.py /usr/local/bin/tsundere-linus
+sudo mv tsundere-linux.py /usr/local/bin/tsundere-linux
 
-# The Tsundere-Linus tool is now set up and ready for use.
-# Run Commands with Tsundere-Linus
+# The Tsundere-Linux tool is now set up and ready for use.
+# Run Commands with Tsundere-Linux
 # --------------------------------
 # Example: Attempt to list a non-existent directory
-tsundere-linus ls /nonexistentdirectory
+tsundere-linux ls /nonexistentdirectory
 
 # Example: Attempt to display the contents of a non-existent file
-tsundere-linus cat nonexistentfile.txt
+tsundere-linux cat nonexistentfile.txt
